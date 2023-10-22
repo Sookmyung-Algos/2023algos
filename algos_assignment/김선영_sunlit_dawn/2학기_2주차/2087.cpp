@@ -1,9 +1,10 @@
+//https://velog.io/@sunjoo9912/%EB%B0%B1%EC%A4%80-2087-Cipher
+
 #include <iostream>
 #include <utility>
 #include <vector>
 #include <algorithm>
 using namespace std;
-
 typedef unsigned long long ull;
 
 int n;
@@ -11,7 +12,6 @@ unsigned sum;
 vector<pair<int, int>> a;
 ull sumFromStart[41] = { 0 };
 ull msg = 0;
-
 
 bool compare(pair<int, int> a, pair<int, int> b) {
 	return a.first > b.first;
@@ -66,16 +66,11 @@ bool decrypt(int start, unsigned nowSum) {
 }
 
 int main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
-
 	cin >> n;
 	for (int i = 0; i < n; ++i) {
 		int value;
 		cin >> value;
 		a.push_back(make_pair(value, i));
-
 		sumFromStart[0] += a[i].first;
 	}
 	cin >> sum;
@@ -88,5 +83,6 @@ int main() {
 		if(msg & (1LL << i)) cout << "1";
 		else cout << "0";
 	}
-	return 0;
 }
+
+
