@@ -1,18 +1,24 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-bool index[100'000'000]; // 메모리 초과
-int main()
-{for (int i = 0; i < 1000; i++){
-		int val;
-		cin >> val;
-		index[val] = true; 
-	}
-	for (int i = 0; i < 1000; i++){
-		int val;
-		cin >> val;
-		if(index[val]) cout << "배열에 있는 값\n";
-		else cout << "배열에 없는 값\n"; 
-	}
-	return 0;
+int main(){
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++){
+        cin >> v[i];
+    }
+    vector<int> copy(v);
+    sort(copy.begin(), copy.end());
+    copy.erase(unique(copy.begin(), copy.end()), copy.end());
+    for (int i = 0; i < n; i++){
+        auto it = lower_bound(copy.begin(), copy.end(), v[i]);
+	    cout << it - copy.begin() << ' ';
+    }
+    return 0;
 }
