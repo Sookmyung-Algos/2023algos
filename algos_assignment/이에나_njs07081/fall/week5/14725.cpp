@@ -52,4 +52,3 @@ int main(void){
     trie.prtAllNode(trie.root, 0);
     return 0;
 }
-출처: https://kangminjun.tistory.com/entry/BOJ-14725번-개미굴 [알고리즘 문제풀이:티스토리]
